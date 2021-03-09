@@ -3,11 +3,13 @@ class SingletonTest
   @variable_for_instance = "instancevariable"
   @myself
 
+  private_class_method :new
+
   def self.unique_instance
     if @myself == nil
-      @myself = SingletonTest.new
-      return @myself
+      @myself = new()
     end
+    return @myself
   end
 
   def sum(num1, num2)
